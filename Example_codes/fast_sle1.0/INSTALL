@@ -1,0 +1,52 @@
+
+    This file is part of fast_sle (version 1.0), which implements 
+    a fast algorithm for simulating the Schramm-Loewner evolution (SLE)  
+
+    Copyright (C) 2005 Tom Kennedy
+
+    fast_sle is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    fast_sle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with fast_sle; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+    E-mail contact: tgk@math.arizona.edu
+    Ordinary mail: 
+	Tom Kennedy
+        Mathematics Department
+	University of Arizona
+	Tucson, ZA 85721, USA
+
+
+----------------------------------------------------------------------------
+
+Installation
+============
+
+This is not (yet) meant to be a package you can install in the usual
+sense. The present version is meant as a starting point for those
+who which to do their own SLE simulations with this code.
+
+After you have downloaded fast_sle1.0.tar.gz you should do 
+
+gunzip fast_sle1.0.tar.gz
+tar xvf fast_sle1.0.tar
+
+(Of course, if you are reading this file you have probably already
+done this.)
+
+There should now be a script run_fast_sle. Execute it.
+This will compile the program (driver_sle.c) and run it with some default
+parameter values. The parameter values are set in the script, 
+and can be changed by modifying the script. See the script for 
+documentation.  
+
+See the file README for info doing more than just running the program.
