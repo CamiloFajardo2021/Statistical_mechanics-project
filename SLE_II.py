@@ -12,7 +12,7 @@ Complex = Union[np.complex64, np.complex128]
 
 def main():
     t = np.linspace(0, 10, 1000)
-    kappa = 0
+    kappa = 8.
     u = driving_function(len(t), t[1]-t[0], kappa)
     z = SLE(t, u, kappa)
     #zeros = np.zeros(len(t))
@@ -41,9 +41,9 @@ def SLE(t:Type[np.array], u:Type[np.array], kappa:Real) -> Type[np.array]:
     
     #Animation parameters
     metadata = dict(title = "SLE_evolution", artist = "Group 5 - Statistical Mechanics")
-    writer = FFMpegWriter(fps = 15, metadata = metadata)
+    writer = FFMpegWriter(fps = 30, metadata = metadata)
     fig = plt.figure(figsize = (7,7))
-    plt.xlim(-1, 1)
+    plt.xlim(-1, 4.5)
     plt.ylim(0, 6.5)
     l, = plt.plot([],[], "-k", linewidth = 1)
 
