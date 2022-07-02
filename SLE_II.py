@@ -12,7 +12,7 @@ Complex = Union[np.complex64, np.complex128]
 
 def main():
     t = np.linspace(0, 10, 1000)
-    kappa = 8.
+    kappa = 1.
     u = driving_function(len(t), t[1]-t[0], kappa)
     z = SLE(t, u, kappa)
     #zeros = np.zeros(len(t))
