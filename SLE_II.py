@@ -12,9 +12,9 @@ Complex = Union[np.complex64, np.complex128]
 
 def main():
     t = np.linspace(0, 10, 1000)
-    kappa = 8./3.
+    kappa = 0
     u = driving_function(len(t), t[1]-t[0], kappa)
-    z = SLE(t, u)
+    z = SLE(t, u, kappa)
     #zeros = np.zeros(len(t))
 
     plt.plot(z.real, abs(z.imag), '-')
@@ -25,7 +25,7 @@ def main():
     z_data = {'z real': z.real,
     'z imag': abs(z.imag)}
     z_data = pd.DataFrame(z_data)
-    z_data.to_csv('final_curve_values.csv')
+    z_data.to_csv(f'final_curve_values_kappa={kappa: 0.1f}.csv')
 
 
 ########################### SECONDARY FUNCTIONS ###########################
@@ -37,13 +37,13 @@ def driving_function(size:int, dt:Real, k:Real) -> Type[np.array]:
 def vslit(w:Complex, dt:Real, u:Real) -> Type[Complex]:
     return ne.evaluate("1j * sqrt(4 * dt - (w-u) ** 2) + u")
 
-def SLE(t:Type[np.array], u:Type[np.array]) -> Type[np.array]:
+def SLE(t:Type[np.array], u:Type[np.array], kappa:Real) -> Type[np.array]:
     
     #Animation parameters
     metadata = dict(title = "SLE_evolution", artist = "Group 5 - Statistical Mechanics")
     writer = FFMpegWriter(fps = 15, metadata = metadata)
     fig = plt.figure(figsize = (7,7))
-    plt.xlim(-1, 4.5)
+    plt.xlim(-1, 1)
     plt.ylim(0, 6.5)
     l, = plt.plot([],[], "-k", linewidth = 1)
 
@@ -52,7 +52,7 @@ def SLE(t:Type[np.array], u:Type[np.array]) -> Type[np.array]:
     z = np.zeros(len(t), dtype=np.complex_)
     z = cp.deepcopy(u+0.00000001j)
     
-    with writer.saving(fig, "SLE_evolution-final.mp4", dpi = 100):
+    with writer.saving(fig, f"SLE_evolution-final_kappa={kappa: 0.1f}.mp4", dpi = 100):
         for step in range(nsteps-1, 0, -1):
             dt = t[step]-t[step-1]
             z[step:] = vslit(z[step:], dt, float(u[step]))
