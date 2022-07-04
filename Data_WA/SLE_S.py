@@ -9,7 +9,7 @@ import csv
 Real = Union[np.float16, np.float32, np.float64, float];
 Complex = Union[np.complex64, np.complex128];
 
-np.random.seed(14122)
+np.random.seed(14722)
 
 def driving_function(size:int, dt:Real, k:Real) -> Type[np.array]:
     u = np.random.standard_normal(size)
@@ -31,8 +31,8 @@ def SLE(t:Type[np.array], u:Type[np.array]) -> Type[np.array]:
     return z
 
 
-tf = 2.0
-t = np.linspace(0, tf, 10000)
+tf = 10.0
+t = np.linspace(0, tf, 50000)
 kappa = 2.00
 u = driving_function(len(t), t[1]-t[0], kappa)
 z = SLE(t, u)
