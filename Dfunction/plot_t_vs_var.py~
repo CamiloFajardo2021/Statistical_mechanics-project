@@ -1,0 +1,65 @@
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy import stats
+
+t1, varU1 = np.loadtxt('./data/data_k_1.txt', unpack=True)
+t2, varU2 = np.loadtxt('./data/data_k_1_25.txt', unpack=True)
+t3, varU3 = np.loadtxt('./data/data_k_1_5.txt', unpack=True)
+t4, varU4 = np.loadtxt('./data/data_k_1_75.txt', unpack=True)
+t5, varU5 = np.loadtxt('./data/data_k_2.txt', unpack=True)
+t6, varU6 = np.loadtxt('./data/data_k_2_25.txt', unpack=True)
+
+
+lin1 = stats.linregress(t1, varU1/10)
+lin2 = stats.linregress(t2, varU2/10)
+lin3 = stats.linregress(t3, varU3/10)
+lin4 = stats.linregress(t4, varU4/10)
+lin5 = stats.linregress(t5, varU5/10)
+lin6 = stats.linregress(t6, varU6/10)
+
+plt.grid()
+plt.ylabel(r'$\langle U_{t}^{2}\rangle-\langle U_{t}\rangle^{2}$', fontsize=12)
+plt.xlabel('t', fontsize=14)
+'''
+plt.plot(t1, varU1/10, 'ko', markersize=3)
+plt.plot(t1, t1, 'r--', label='Teórica')
+plt.title(r'$k=1.0$', fontsize=15)
+plt.legend()
+plt.savefig('t_vs_var_k_1')
+'''
+'''
+plt.plot(t2, varU2/10, 'bo', markersize=3)
+plt.plot(t2, 1.25*t2, 'r--', label='Teórica')
+plt.title(r'$k=1.25$', fontsize=15)
+plt.legend()
+plt.savefig('t_vs_var_k_1_25')
+'''
+'''
+plt.plot(t3, varU3/10, 'go', markersize=3)
+plt.plot(t3, 1.5*t3, 'r--', label='Teórica')
+plt.title(r'$k=1.5$', fontsize=15)
+plt.legend()
+plt.savefig('t_vs_var_k_1_5')
+'''
+'''
+plt.plot(t4, varU4/10, 'ro', markersize=3)
+plt.plot(t4, 1.75*t4, 'k--', label='Teórica')
+plt.title(r'$k=1.75$', fontsize=15)
+plt.legend()
+plt.savefig('t_vs_var_k_1_75')
+'''
+'''
+plt.plot(t5, varU5/10, 'mo', markersize=3)
+plt.plot(t5, 2.0*t5, 'r--', label='Teórica')
+plt.title(r'$k=2.0$', fontsize=15)
+plt.legend()
+plt.savefig('t_vs_var_k_2')
+'''
+plt.plot(t6, varU6/10, 'yo', markersize=3)
+plt.plot(t6, 2.25*t6, 'r--', label='Teórica')
+plt.title(r'$k=2.25$', fontsize=15)
+plt.legend()
+plt.savefig('t_vs_var_k_2_25')
+#plt.grid()
+
+plt.show()
