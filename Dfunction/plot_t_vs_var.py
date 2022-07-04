@@ -59,14 +59,14 @@ plt.title(r'$k=2.0$', fontsize=15)
 plt.legend()
 plt.savefig('t_vs_var_k_2')
 '''
+'''
 plt.plot(t6, varU6/10, 'yo', markersize=3)
 plt.plot(t6, 2.25*t6, 'r--', label='Teórica')
-plt.plot(t6, t6*popt6)
 plt.title(r'$k=2.25$', fontsize=15)
 plt.legend()
 plt.savefig('t_vs_var_k_2_25')
 #plt.show()
-
+'''
 print('Slope', '\t','Ds')
 print(popt1, 3*np.sqrt(np.diag(pcov1)))
 print(popt2, 3*np.sqrt(np.diag(pcov2)))
