@@ -31,7 +31,7 @@ def SLE(t:Type[np.array], u:Type[np.array]) -> Type[np.array]:
     return z
 
 
-tf = 10.0
+tf = 1.0
 t = np.linspace(0, tf, 100000)
 kappa = 1.25
 u = driving_function(len(t), t[1]-t[0], kappa)
